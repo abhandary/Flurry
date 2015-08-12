@@ -1,0 +1,6 @@
+framework module FlurryFramework {
+  umbrella header "FlurryFramework.h"
+
+  export *
+  module * { export * }
+}
