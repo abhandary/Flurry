@@ -4,24 +4,29 @@ EOT
 
 Pod::Spec.new do |s|
   s.name     = 'FlurrySDK'
-  s.version  = '8.0.0'
-  s.license  = { :type => 'Commercial', :text => license }
+  s.version  = '6.7.0-beta1'
+  s.license  = { :type => 'Yahoo Internal', :text => 'YAHOO! CONFIDENTIAL & INTERNAL ONLY' }
   s.summary  = 'FlurrySDK for analytics tracking and reporting. Also Ads included'
   s.homepage = 'http://www.flurry.com'
   s.author   = { 'Flurry' => 'http://www.flurry.com' }
-  s.source   = { :git => 'https://github.com/abhandary/Flurry.git', :tag => "#{s.version}" }
+  # s.source   = { :git => 'git@git.corp.yahoo.com:ymobilelibs/flurry_ios.git', :tag => s.version.to_s }
+  s.source   = { :git => 'https://github.com/abhandary/Flurry.git', :tag => s.version.to_s }
   s.platform = :ios
-  s.requires_arc = false
+  s.requires_arc = true
   s.default_subspec = 'FlurrySDK'
 
   s.subspec 'FlurrySDK' do |ss|
-    ss.source_files = 'Flurry/Flurry.h'
+ #   ss.source_files = 'Flurry/Flurry.h'
+    ss.source_files = [
+      'Flurry/Flurry.h',
+      'Flurry/Empty.m'
+    ]
     # To ensure frameworks really used by lib you can use:
     # SystemConfiguration: nm -m Flurry/*.a | grep -v 'non-external' | grep _SC
     # UIKit used:          nm -m Flurry/*.a | grep -v 'non-external' | grep _UI
     # Security used:       nm -m Flurry/*.a | grep -v 'non-external' | grep _Sec
     ss.frameworks = 'Foundation', 'SystemConfiguration', 'UIKit', 'Security'
-  #  ss.vendored_libraries = "Flurry/libFlurry_#{s.version}.a"
+    # ss.vendored_libraries = "Flurry/libFlurry_#{s.version}.a"
     ss.vendored_frameworks = "FlurryFramework.framework"
   end
 
@@ -50,7 +55,7 @@ Pod::Spec.new do |s|
     # AdSupport used:     nm -m FlurryAds/*.a | grep -v 'non-external' | grep _AS
     # StoreKit not used?: nm -m FlurryAds/*.a | grep -v 'non-external' | grep _SK
     ss.weak_frameworks = 'AdSupport', 'StoreKit'
-    ss.vendored_libraries = "FlurryAds/libFlurryAds_#{s.version}.a"
+    ss.vendored_libraries = "FlurryAds/libFlurryAds_6.6.0.a"
     ss.dependency 'FlurrySDK/FlurrySDK'
   end
 
