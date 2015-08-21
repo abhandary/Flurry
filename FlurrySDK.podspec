@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     # Security used:       nm -m Flurry/*.a | grep -v 'non-external' | grep _Sec
     ss.frameworks = 'Foundation', 'SystemConfiguration', 'UIKit', 'Security'
     ss.vendored_libraries = "Flurry/libFlurry_#{s.version}.a"
-    ss.vendored_frameworks = "FlurryFramework.framework"
+#    ss.vendored_frameworks = "FlurryFramework.framework"
   end
 
   s.subspec 'FlurryWatchSDK' do |ss|
