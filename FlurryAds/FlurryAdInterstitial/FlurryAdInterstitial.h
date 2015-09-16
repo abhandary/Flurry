@@ -19,7 +19,7 @@
  *
  *  @note This class depends on Flurry.h.
  *  For information on how to use Flurry's Ads SDK to
- *  attract high-quality users and monetize your user base see <a href="http://support.flurry.com/index.php?title=Publishers">Support Center - Publishers</a>.
+ *  attract high-quality users and monetize your user base see <a href="https://developer.yahoo.com/flurry/docs/howtos">Support Center - Publishers</a>.
  *
  *  @author 2009 - 2014 Flurry, Inc. All Rights Reserved.
  *  @version 6.0.0
@@ -97,7 +97,7 @@
     {
         if ([self.adInterstitial ready] == YES)
         {
-            [self.adInterstitial presentWithViewControler:self];
+            [self.adInterstitial presentWithViewController:self];
         }
         else
         {
@@ -137,7 +137,7 @@
  *  @see \n
  *  FlurryAdInterstitialDelegate#adInterstitialDidFetchAd: for details on the notification of ads being received.\n
  *  FlurryAdInterstitialDelegate#adInterstitial:adError:errorDescription: for details on notification of failure to receive ads from this request.\n
- *  #presentWithViewControler: for details on displaying an available ad.
+ *  #presentWithViewController: for details on displaying an available ad.
  *
  *  @code
  
@@ -153,13 +153,13 @@
     // Show whenever delegate is invoked
     - (void) adInterstitialDidFetchAd:(FlurryAdInterstitial *) adInterstitial {
         // Received Ad
-        [adInterstitial presentWithViewControler:self];
+        [adInterstitial presentWithViewController:self];
     }
  
     // Alternatively, try to display at a certain point in the app
     - (void) levelComplete {
         if([self.adInterstitial ready]) {
-            [self.adInterstitial presentWithViewControler:self];
+            [self.adInterstitial presentWithViewController:self];
         }
     }
  *  @endcode
@@ -182,13 +182,14 @@
     - (void)showFullscreenAd
     {
         if([self.adInterstitial ready]) {
-            [self.adInterstitial presentWithViewControler:self];
+            [self.adInterstitial presentWithViewController:self];
         }
     }
  *  @endcode
  *
  *  @param viewController The viewController to show the fullscreen ad modally.
  */
-- (void) presentWithViewControler: (UIViewController *) presentingViewController;
+- (void) presentWithViewController: (UIViewController *) presentingViewController;
+
 
 @end
