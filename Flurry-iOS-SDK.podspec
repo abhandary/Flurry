@@ -26,7 +26,8 @@ Pod::Spec.new do |s|
     ]
     
     ss.platform   = :ios, '5.0'
-    ss.frameworks = 'Foundation', 'WatchConnectivity', 'SystemConfiguration', 'UIKit', 'Security'
+    ss.frameworks = 'Foundation', 'SystemConfiguration', 'UIKit', 'Security'
+    ss.optional_frameworks = 'WatchConnectivity'
     ss.vendored_libraries = "Flurry/libFlurry_7.5.0.a"
   end
 
